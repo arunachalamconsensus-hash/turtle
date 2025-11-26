@@ -1,0 +1,95 @@
+body{
+    background:#87CEEB;
+    overflow:hidden;
+}
+
+/* Walking Path */
+.ground{
+    width:100%;
+    height:120px;
+    background:#228B22;
+    position:absolute;
+    bottom:0;
+}
+
+/* Turtle Base */
+.turtle{
+    width:250px;
+    height:150px;
+    position:absolute;
+    bottom:120px;
+    left:-300px;
+    animation:walk 12s linear infinite;  /* Moves across screen */
+}
+
+/* Turtle Shell */
+.shell{
+    width:220px;
+    height:140px;
+    background:#654321;
+    border-radius:160px 160px 80px 80px;
+    border:6px solid black;
+    position:absolute;
+    top:10px;
+    left:15px;
+}
+
+/* Head */
+.head{
+    width:70px;
+    height:60px;
+    background:#7aa34c;
+    border-radius:50%;
+    border:5px solid black;
+    position:absolute;
+    top:50px;
+    left:-40px;
+}
+
+/* Eye Blink */
+.eye{
+    width:12px;
+    height:12px;
+    background:black;
+    border-radius:50%;
+    position:absolute;
+    top:72px;
+    left:-15px;
+    animation:blink 2.5s infinite;
+}
+
+/* Turtle Legs */
+.leg{
+    width:50px;
+    height:60px;
+    background:#7aa34c;
+    border-radius:20px;
+    border:4px solid black;
+    position:absolute;
+    animation:step 0.6s infinite alternate ease-in-out;
+}
+
+.leg1{ top:120px; left:30px; }
+.leg2{ top:120px; left:80px; animation-delay:.3s; }
+.leg3{ top:120px; left:150px; }
+.leg4{ top:120px; left:200px; animation-delay:.3s; }
+
+/* Turtle Movement Across Screen */
+@keyframes walk{
+    0%{ left:-300px; transform:scaleX(1); }
+    50%{ left:120%; transform:scaleX(1); }
+    51%{ transform:scaleX(-1);}  /* turn back */
+    100%{ left:-300px; transform:scaleX(-1);}
+}
+
+/* Leg Walk Animation */
+@keyframes step{
+    0%{ transform:rotate(15deg); }
+    100%{ transform:rotate(-15deg); }
+}
+
+/* Eye Blink Animation */
+@keyframes blink{
+    0%,95%,100%{ height:12px; }
+    97%{ height:2px; }
+}
